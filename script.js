@@ -95,8 +95,8 @@ function search(str) {
     // ternary operator which takes the filtered value and sets it all to lowercase,
     // and uses the includes() method to determine if the user input is found in the array
     // if it is (true), push the value into the 'results' array,
-    // if it is not (false), set it to 'null' value
-    value.toLowerCase().includes(str) ? results.push(value) : null
+    // if it is not (false), set it to an empty string
+    value.toLowerCase().includes(str) ? results.push(value) : ''
   );
   // the execution of the ternary operator have now popluated the empty 'results' array
   // this search function will then return the value of the 'results' array
