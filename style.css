@@ -51,7 +51,10 @@ ul li {
   list-style: none;
   padding: 10px;
 }
+
 ul li:hover {
   background-color: #dc640e;
+  border: 2px solid firebrick;
+  font-style: italic;
   cursor: pointer;
 }

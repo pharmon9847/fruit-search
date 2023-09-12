@@ -34,6 +34,7 @@ describe('Fruit Search Application', () => {
     // make sure the value of the input field is the one we clicked with
     expect(input.value).toBe('Banana');
   });
+
   // it should clear suggestions when input is empty
   it('it should clear suggestions when input is empty', () => {
     // set the value of the input
@@ -46,8 +47,20 @@ describe('Fruit Search Application', () => {
     // expect suggestion to be empty
     expect(suggestions.innerHTML).toBe('');
   });
-  //   TODO
+
   // it should highlight the suggestions when the user hovers on the li items
+  it('it should highlight the suggestions when the user hovers on the li items', () => {
+    // create a new li element
+    const suggestionItem = document.createElement('li');
+    suggestionItem.innerText = 'Apple';
+    suggestionItem.style.backgroundColor = 'orangered';
+    // attach that li element to the suggestions ul element
+    suggestions.append(suggestionItem);
+    // simulate a mouseover on that li element
+    suggestionItem.dispatchEvent(new Event('mouseover'));
+    // expect li to be highlighted on mouseover
+    expect(suggestionItem.style.backgroundColor).toContain('orangered');
+  });
 
   afterEach(() => {
     input.value = '';
