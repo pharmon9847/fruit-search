@@ -84,7 +84,11 @@ const fruit = [
 ];
 
 function search(str) {
-  return fruit.filter((value) => value.toLowerCase().includes(str));
+  let results = [];
+  fruit.filter((value) =>
+    value.toLowerCase().includes(str) ? results.push(value) : ''
+  );
+  return results;
 }
 
 function searchHandler(event) {
@@ -95,15 +99,18 @@ function searchHandler(event) {
 
 function showSuggestions(results) {
   suggestions.innerText = '';
-  for (let i = 0; i < results.length; i++) {
-    const newLi = document.createElement('li');
-    newLi.innerText = results[i];
-    suggestions.appendChild(newLi);
+  if (results.length > 0) {
+    for (let i = 0; i < results.length; i++) {
+      const newLi = document.createElement('li');
+      newLi.innerText = results[i];
+      suggestions.appendChild(newLi);
+    }
   }
 }
 
 function useSuggestion(event) {
-  input.value = event.target.innerText;
+  const suggestionValue = event.target.innerText;
+  input.value = suggestionValue;
   suggestions.innerText = '';
 }
 
